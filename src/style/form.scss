@@ -1,7 +1,6 @@
 $element-spacing: 10px;
 
 main {
-  height: 83vh;
   text-align: -webkit-center;
 
   form {
@@ -35,23 +34,6 @@ main {
 
     [type=radio]:checked + div {
       background-color: #379683;
-    }
-  }  
-
-  section {
-    width: 80%;
-    height: 50vh;
-    background-color: #8EE4AF;
-    text-align: left;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: $element-spacing;
-  
-    li {
-      padding: $element-spacing;
-      color: #05386B;
     }
   }
 }
