@@ -17,13 +17,13 @@ class Form extends React.Component {
 
   render() {
     return (
-      <>
+      <main>
         <form>
-          <label>
+          <label id='url-label'>
             Url:
             <input type="text" name="url" onChange={this.urlOnChange}/>
           </label>
-          <div onChange={this.radioButtonOnChange}>
+          <div id='http-method-buttons' onChange={this.radioButtonOnChange}>
             <label>
               <input type="radio" value="GET" name="httpMethod"/>
               <div>GET</div>
@@ -44,11 +44,10 @@ class Form extends React.Component {
         </form>
         <section>
           <ul>
-            <li>URL: {this.state.url}</li>
-            <li>HTTP Method: {this.state.httpMethod}</li>
+            <li>{this.state.httpMethod} {this.state.url}</li>
           </ul>
         </section>
-      </>
+      </main>
     )
   }
 }
