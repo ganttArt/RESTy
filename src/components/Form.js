@@ -24,10 +24,22 @@ class Form extends React.Component {
             <input type="text" name="url" onChange={this.urlOnChange}/>
           </label>
           <div onChange={this.radioButtonOnChange}>
-            <input type="radio" value="GET" name="httpMethod"/>GET
-            <input type="radio" value="POST" name="httpMethod" />POST
-            <input type="radio" value="PUT" name="httpMethod" />PUT
-            <input type="radio" value="DELETE" name="httpMethod" />DELETE
+            <label>
+              <input type="radio" value="GET" name="httpMethod"/>
+              <div>GET</div>
+            </label>
+            <label>
+              <input type="radio" value="POST" name="httpMethod"/>
+              <div>POST</div>
+            </label>
+            <label>
+              <input type="radio" value="PUT" name="httpMethod"/>
+              <div>PUT</div>
+            </label>
+            <label>
+              <input type="radio" value="DELETE" name="httpMethod"/>
+              <div>DELETE</div>
+            </label>
           </div>
         </form>
         <section>
