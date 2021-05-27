@@ -29,10 +29,13 @@ class Form extends React.Component {
     } else {
       raw = await fetch(this.state.url, {
         method: this.state.httpMethod,
-        body: this.state.body
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: this.state.body,
       });
     }
-    
     let data = await raw.json();
     let count = data.count;
 
