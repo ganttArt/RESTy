@@ -20,6 +20,7 @@ class Form extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
+    this.props.updateSpinner();
     let raw;
 
     if (this.state.httpMethod === 'GET' || this.state.httpMethod === 'DELETE'){
@@ -38,7 +39,7 @@ class Form extends React.Component {
     }
     let data = await raw.json();
     let count = data.count;
-
+    this.props.updateSpinner();
     this.props.updateResults(JSON.stringify(data, null, 2), raw.headers, count);
   }
 
