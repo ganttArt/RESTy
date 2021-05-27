@@ -41,6 +41,16 @@ class Form extends React.Component {
     let count = data.count;
     this.props.updateSpinner();
     this.props.updateResults(JSON.stringify(data, null, 2), raw.headers, count);
+
+    let localStorageObject = {
+      httpMethod: this.state.httpMethod,
+      url: this.state.url,
+      count: count,
+      results: data,
+      headers: raw.headers
+    }
+    localStorage.setItem(`${this.state.httpMethod}_${this.state.url}`, JSON.stringify(localStorageObject));
+    this.props.updateHistory(`${this.state.httpMethod}_${this.state.url}`, JSON.stringify(localStorageObject));
   }
 
   render() {
