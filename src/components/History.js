@@ -6,7 +6,8 @@ class History extends React.Component {
   render() {
     return (
       <section id='history'>
-        <If condition={this.props.history}>
+        <h2>History</h2>
+        <If condition={Object.keys(this.props.history).length > 0}>
           <ul>
             {Object.keys(this.props.history).map((key, idx) => {
               return (

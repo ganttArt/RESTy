@@ -38,13 +38,15 @@ class App extends React.Component {
             updateSpinner={this.updateSpinner}
             updateHistory={this.updateHistory}
           />
-          <History history={this.state.history}/>
-          <Results
-            count={this.state.count}
-            headers={this.state.headers}
-            results={this.state.results}
-            spinnerOn={this.state.spinnerOn}
-          />
+          <section id='section-history-container'>
+            <History history={this.state.history}/>
+            <Results
+              count={this.state.count}
+              headers={this.state.headers}
+              results={this.state.results}
+              spinnerOn={this.state.spinnerOn}
+            />
+          </section>
         </main>
       </div>
     );
