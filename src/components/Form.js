@@ -21,7 +21,7 @@ class Form extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     this.props.updateSpinner();
-    let raw;
+    let raw, count, headers;
 
     if (this.state.httpMethod === 'GET' || this.state.httpMethod === 'DELETE'){
       raw = await fetch(this.state.url, {
@@ -37,10 +37,24 @@ class Form extends React.Component {
         body: this.state.body,
       });
     }
+
+    console.log('raw', raw);
     let data = await raw.json();
-    let count = data.count;
+    data.count ? count = data.count : count = 1;
+    headers = raw.headers;
+
     this.props.updateSpinner();
-    this.props.updateResults(JSON.stringify(data, null, 2), raw.headers, count);
+    this.props.updateResults(JSON.stringify(data, null, 2), headers, count);
+
+    let localStorageObject = {
+      httpMethod: this.state.httpMethod,
+      url: this.state.url,
+      count: count,
+      results: data,
+      headers: headers
+    }
+    localStorage.setItem(`${this.state.httpMethod}_${this.state.url}`, JSON.stringify(localStorageObject));
+    this.props.updateHistory(`${this.state.httpMethod}_${this.state.url}`, JSON.stringify(localStorageObject));
   }
 
   render() {

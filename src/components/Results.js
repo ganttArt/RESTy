@@ -7,7 +7,7 @@ class Results extends React.Component {
 
   render() {
     return (
-        <section>
+        <section id='results'>
           <If condition={this.props.spinnerOn}>
             <Orbitals color="#05386B" />
           </If>
