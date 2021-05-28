@@ -18,7 +18,12 @@ class App extends React.Component {
     }
   }
 
-  updateResults = (results, headers, count) => {this.setState({ results, headers, count })}
+  updateResults = (results, headers, count) => {
+    console.log(headers);
+    this.setState({ results });
+    this.setState({ headers });
+    this.setState({ count });
+  }
 
   updateSpinner = () => this.setState({ spinnerOn: !this.state.spinnerOn })
 
@@ -39,7 +44,10 @@ class App extends React.Component {
             updateHistory={this.updateHistory}
           />
           <section id='section-history-container'>
-            <History history={this.state.history}/>
+            <History
+              history={this.state.history}
+              updateResults={this.updateResults}  
+            />
             <Results
               count={this.state.count}
               headers={this.state.headers}
