@@ -1,12 +1,15 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+
 import Header from './components/Header';
 import Form from './components/Form';
 import Results from './components/Results';
 import History from './components/History';
+import Help from './components/Help';
 import './style/app.scss';
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -38,22 +41,31 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <main>
-          <Form 
+          <Form
             updateResults={this.updateResults}
             updateSpinner={this.updateSpinner}
             updateHistory={this.updateHistory}
           />
           <section id='section-history-container'>
-            <History
-              history={this.state.history}
-              updateResults={this.updateResults}  
-            />
-            <Results
-              count={this.state.count}
-              headers={this.state.headers}
-              results={this.state.results}
-              spinnerOn={this.state.spinnerOn}
-            />
+            <Switch>
+              <Route path="/history">
+                <History
+                  history={this.state.history}
+                  updateResults={this.updateResults}
+                />
+              </Route>
+              <Route exact path="/">
+                <Results
+                  count={this.state.count}
+                  headers={this.state.headers}
+                  results={this.state.results}
+                  spinnerOn={this.state.spinnerOn}
+                />
+              </Route>
+              <Route path="/help">
+                <Help />
+              </Route>
+            </Switch>
           </section>
         </main>
       </div>
