@@ -1,0 +1,16 @@
+header {
+  display: flex;
+
+  h1 {
+    padding: 0 2rem;
+  }
+
+  nav{
+    margin-left: auto;
+    order: 2;
+    
+    ul {
+      display: flex;
+    }
+  }
+}

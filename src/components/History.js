@@ -1,5 +1,6 @@
 import React from 'react';
 import { If } from 'react-if';
+import { Link } from 'react-router-dom';
 import '../style/history.scss';
 
 class History extends React.Component {
@@ -24,12 +25,14 @@ class History extends React.Component {
                 return (
                   <>
                     <li>
-                      <button
-                        value={key} 
-                        onClick={() => this.handleClick(key)}
-                      >
-                        {key}
-                      </button>
+                      <Link to='/'>
+                        <button
+                          value={key} 
+                          onClick={() => this.handleClick(key)}
+                        >
+                          {key}
+                        </button>
+                      </Link>
                     </li>
                   </>
                 )
